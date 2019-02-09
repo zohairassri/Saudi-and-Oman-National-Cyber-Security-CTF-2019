@@ -1,0 +1,36 @@
+Points :
+
+descr  : Maria is the only person who can view the flag
+Level  : Hard
+
+Privacy Note: Your IP is stored in our database for a security tracking reasons.
+
+
+1-First of all i search in : Source code , cookie , ....... but i can't found any result !!!
+
+2-in second step i use SQLMAP tool but after a long time ....  no result.
+
+When i intercept the request i found interesting thing  : 
+"X-Forwarded-For" or XFF HTTP header field 
+is a common method for identifying the originating IP address of a client connecting to a web server through
+an HTTP proxy or load balancer.
+
+And with the "Privacy Note" i make sure that XFF is vulnerable and i use it o inject some payload : 
+
+curl --header "X-Forwarder-For : my@ip 'union select 1,2,3,(select sql from sqlite_master)-- -" -v http://35.222.174.178/maria/
+
+in PHPSESSID i get the result hhhh : 
+  i noticed that there is a new table "nxf8_users" that contain ip,name,role,password for users
+but this is just a trap ;) 
+
+But I know that there is a column name ip_address in "nxf8_sessios" that's good 
+i found 3 @ip  :
+
+finally i use this to get COOKIE for maria : 
+  curl --header "X-Forwarder-For : @ip1" -v http://35.222.174.178/maria/   === cookie is not working
+  curl --header "X-Forwarder-For : @ip2" -v http://35.222.174.178/maria/   === Good cookie for me 
+  
+ i put the following cookie in  browser to get the flag 
+
+  
+  
