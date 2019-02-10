@@ -1,0 +1,18 @@
+
+Level : easy
+Points : 50
+
+Descrip : A hacker left us something that allows us to track him in this image.
+can you find it ?
+          
+Firstly i have an PNG image "godot.png"
+1- file godot.png
+godot.png: PNG image data, 64 x 64, 8-bit/color RGBA, non-interlaced
+
+2-  strings godot.png
+So here i found something interesting !!!
+
+IZGECR33JZXXIX2PNZWHSX2CMFZWKNRUPU======   it's a base32
+
+3-  echo IZGECR33JZXXIX2PNZWHSX2CMFZWKNRUPU====== | base32 -d
+FLAG{Not_Only_Base64}
