@@ -1,0 +1,18 @@
+
+When executing the firt command "file" for image  i found !!!
+
+1- file info.png
+info.jpg: JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, comment: "badisbad", baseline, precision 8, 194x259, frames 3
+
+I think that the comment "badisbad" is very interesting it's password for something ??
+
+let's try the classical tool "Steghide"  : 
+
+  steghide extract -sf info.jpg
+  Enter passphrase: badisbad
+  
+  wrote extracted data to "flaggg.txt"
+So let's cat this file ; 
+
+cat flaggg.txt 
+flag{Stegn0_1s_n!ce}
