@@ -1,4 +1,11 @@
 
+Category : Digital Forensics
+Level : medium 
+Points : 100 pts
+
+desc : can you get the flag out to hack a nice day. Note Flag format flag{XXXXXXXXXX}
+
+
 When executing the firt command "file" for image  i found !!!
 
 1- file info.png
